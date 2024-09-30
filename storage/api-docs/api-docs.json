@@ -1,0 +1,74 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": " OpenApi Documentation",
+        "description": " Swagger OpenApi description",
+        "contact": {
+            "email": "admin@admin.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://vesperia.test",
+            "description": " API Server"
+        }
+    ],
+    "paths": {
+        "/api/login": {
+            "post": {
+                "summary": "Login",
+                "operationId": "281d8eebbf204270872c318e33ae3525",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "description": "User's name",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "User's password",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "User login successful"
+                    },
+                    "422": {
+                        "description": "Validation errors"
+                    },
+                    "404": {
+                        "description": "Invalid username or password"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [],
+    "security": [
+        {
+            "sanctum": {
+                "type": "apiKey",
+                "description": "Bearer",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    ]
+}
